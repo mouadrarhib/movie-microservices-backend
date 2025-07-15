@@ -9,7 +9,7 @@
         <module name="api-gateway" />
         <module name="discovery-server" />
       </profile>
-      <profile name="Annotation profile for review-service" enabled="true">
+      <profile name="Annotation profile for movie-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
