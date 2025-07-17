@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/movies")
+@RequestMapping("/movies")
 @Tag(name = "Movie Management", description = "API pour la gestion du catalogue de films")
 @CrossOrigin(origins = "*")
 public class MovieController {

@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/ratings")
+@RequestMapping("/ratings")
 @Tag(name = "Rating Management", description = "API pour la gestion des notes de films")
 @CrossOrigin(origins = "*")
 public class RatingController {

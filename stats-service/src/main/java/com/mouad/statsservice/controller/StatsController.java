@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/stats")
+@RequestMapping("/stats")
 @Tag(name = "Statistics", description = "API pour les statistiques de films")
 @CrossOrigin(origins = "*")
 public class StatsController {

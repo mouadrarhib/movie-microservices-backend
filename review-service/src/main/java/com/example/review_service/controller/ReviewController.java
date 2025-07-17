@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/reviews")
+@RequestMapping("/reviews")
 @Tag(name = "Review Management", description = "API pour la gestion des commentaires de films")
 @CrossOrigin(origins = "*")
 public class ReviewController {
