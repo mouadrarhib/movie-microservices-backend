@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ed5c693-80bf-40a5-ab8a-49fb11be189a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/api_gateway/helpers/StartupMessageRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-server/src/main/java/com/example/discovery_server/helpers/StartupMessageRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/api_gateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/api_gateway/ApiGatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/java/com/example/discovery_server/DiscoveryServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/java/com/example/discovery_server/DiscoveryServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application-example.yml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application-example.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movie_service/MovieServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movie_service/MovieServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movie_service/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movie_service/controller/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rating-service/src/main/java/com/example/rating_service/RatingServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/src/main/java/com/example/rating_service/RatingServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rating-service/src/main/java/com/example/rating_service/controller/RatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/src/main/java/com/example/rating_service/controller/RatingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/review-service/src/main/java/com/example/review_service/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/com/example/review_service/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/controller/StatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/controller/StatsController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +66,7 @@
     "Spring Boot.StatsServiceApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Dev/Projects/Backend/Java-Microservices/movie-microservices-backend/api-gateway/src/main/java/com/example/api_gateway",
+    "last_opened_file_path": "C:/Users/user/Desktop/Dev/Projects/Backend/Java-Microservices/movie-microservices-backend/discovery-server",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,10 +78,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\discovery-server" />
+      <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\discovery-server\src\main\java\com\example\discovery_server" />
       <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\api-gateway\src\main\java\com\example\api_gateway" />
       <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\api-gateway" />
       <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\stats-service" />
-      <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\stats-service\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.mouad.statsservice.helper" />
@@ -90,7 +98,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
+  <component name="RunManager" selected="Spring Boot.DiscoveryServerApplication">
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.api_gateway.ApiGatewayApplication" />
@@ -154,7 +162,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1752775289089</updated>
-      <workItem from="1752775290386" duration="2263000" />
+      <workItem from="1752775290386" duration="3745000" />
     </task>
     <servers />
   </component>
