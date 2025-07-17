@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ed5c693-80bf-40a5-ab8a-49fb11be189a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/discovery-server/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery-server/src/main/java/com/example/discovery_server/helpers/StartupMessageRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/java/com/example/discovery_server/DiscoveryServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/java/com/example/discovery_server/DiscoveryServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discovery-server/src/main/resources/application-example.yml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-server/src/main/resources/application-example.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movie_service/MovieServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movie_service/MovieServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movie_service/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/movie-service/src/main/java/com/example/movie_service/controller/MovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rating-service/src/main/java/com/example/rating_service/RatingServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/src/main/java/com/example/rating_service/RatingServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rating-service/src/main/java/com/example/rating_service/controller/RatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rating-service/src/main/java/com/example/rating_service/controller/RatingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review-service/src/main/java/com/example/review_service/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/review-service/src/main/java/com/example/review_service/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/controller/StatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/controller/StatsController.java" afterDir="false" />
-    </list>
+    <list default="true" id="2ed5c693-80bf-40a5-ab8a-49fb11be189a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,7 +149,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1752775289089</updated>
-      <workItem from="1752775290386" duration="3745000" />
+      <workItem from="1752775290386" duration="4204000" />
     </task>
     <servers />
   </component>
