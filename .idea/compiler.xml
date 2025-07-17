@@ -7,10 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
-        <module name="movie-service" />
         <module name="discovery-server" />
       </profile>
-      <profile name="Annotation profile for review-service" enabled="true">
+      <profile name="Annotation profile for stats-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -18,6 +17,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
         <module name="rating-service" />
+        <module name="movie-service" />
         <module name="review-service" />
         <module name="stats-service" />
       </profile>
