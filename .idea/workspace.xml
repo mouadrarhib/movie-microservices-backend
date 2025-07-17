@@ -5,30 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ed5c693-80bf-40a5-ab8a-49fb11be189a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/StatsServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/client/MovieServiceClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/client/RatingServiceClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/client/ReviewServiceClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/controller/StatsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/dto/MovieStatsDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/helper/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/service/StatsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats-service/src/main/java/com/mouad/statsservice/service/StatsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/movie-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stats-service/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stats-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stats-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stats-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stats-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stats-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stats-service/src/main/java/com/example/stats_service/StatsServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stats-service/src/main/resources/application-example.yml" beforeDir="false" afterPath="$PROJECT_DIR$/stats-service/src/main/resources/application-example.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stats-service/src/test/java/com/example/stats_service/StatsServiceApplicationTests.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/api_gateway/helpers/StartupMessageRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/api_gateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/api_gateway/ApiGatewayApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,11 +51,15 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.DiscoveryServerApplication.executor": "Run",
+    "Spring Boot.MovieServiceApplication.executor": "Run",
+    "Spring Boot.RatingServiceApplication.executor": "Run",
     "Spring Boot.ReviewServiceApplication.executor": "Run",
     "Spring Boot.StatsServiceApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Dev/Projects/Backend/Java-Microservices/movie-microservices-backend/stats-service",
+    "last_opened_file_path": "C:/Users/user/Desktop/Dev/Projects/Backend/Java-Microservices/movie-microservices-backend/api-gateway/src/main/java/com/example/api_gateway",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -86,6 +71,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\api-gateway\src\main\java\com\example\api_gateway" />
+      <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\api-gateway" />
       <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\stats-service" />
       <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\stats-service\src\main\resources" />
     </key>
@@ -103,7 +90,14 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.StatsServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.api_gateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiscoveryServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="discovery-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.discovery_server.DiscoveryServerApplication" />
@@ -160,7 +154,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1752775289089</updated>
-      <workItem from="1752775290386" duration="1454000" />
+      <workItem from="1752775290386" duration="2263000" />
     </task>
     <servers />
   </component>
