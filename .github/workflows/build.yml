@@ -1,125 +1,68 @@
-name: Build and Test Movie Microservices
+name: Build & Push Docker Images
 
 on:
   push:
-    branches: [ main, develop ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  test:
+  build-and-push:
+    name: Build and Push Services
     runs-on: ubuntu-latest
-    
-    strategy:
-      matrix:
-        service: [discovery-server, api-gateway, movie-service, rating-service, review-service, stats-service]
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        
-    - name: Cache Maven dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
-        
-    - name: Test ${{ matrix.service }}
-      run: |
-        cd ${{ matrix.service }}
-        mvn clean test
-        
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        
-    - name: Cache Maven dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
-        
-    - name: Build all services
-      run: mvn clean compile -DskipTests
-      
-    - name: Package all services
-      run: mvn clean package -DskipTests
-      
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: jar-artifacts
-        path: |
-          */target/*.jar
-          !*/target/*-sources.jar
-          !*/target/*-javadoc.jar
-        retention-days: 30
 
-  docker-build:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    strategy:
-      matrix:
-        service: [discovery-server, api-gateway, movie-service, rating-service, review-service, stats-service]
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        
-    - name: Cache Maven dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
-        
-    - name: Build ${{ matrix.service }}
-      run: |
-        cd ${{ matrix.service }}
-        mvn clean package -DskipTests
-        
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-      
-    - name: Build Docker image for ${{ matrix.service }}
-      run: |
-        cd ${{ matrix.service }}
-        docker build -t movie-microservices/${{ matrix.service }}:latest .
-        
-    - name: Save Docker image
-      run: |
-        docker save movie-microservices/${{ matrix.service }}:latest > ${{ matrix.service }}-image.tar
-        
-    - name: Upload Docker image artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: docker-${{ matrix.service }}
-        path: ${{ matrix.service }}-image.tar
-        retention-days: 7
+    env:
+      REGISTRY: docker.io
+      IMAGE_PREFIX: ${{ secrets.DOCKERHUB_USERNAME }}
 
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push rating-service
+        run: |
+          docker build -t $REGISTRY/$IMAGE_PREFIX/rating-service ./rating-service
+          docker push $REGISTRY/$IMAGE_PREFIX/rating-service
+
+      - name: Build and Push review-service
+        run: |
+          docker build -t $REGISTRY/$IMAGE_PREFIX/review-service ./review-service
+          docker push $REGISTRY/$IMAGE_PREFIX/review-service
+
+      - name: Build and Push user-service
+        run: |
+          docker build -t $REGISTRY/$IMAGE_PREFIX/user-service ./user-service
+          docker push $REGISTRY/$IMAGE_PREFIX/user-service
+
+      - name: Build and Push stats-service
+        run: |
+          docker build -t $REGISTRY/$IMAGE_PREFIX/stats-service ./stats-service
+          docker push $REGISTRY/$IMAGE_PREFIX/stats-service
+
+      - name: Build and Push api-gateway
+        run: |
+          docker build -t $REGISTRY/$IMAGE_PREFIX/api-gateway ./api-gateway
+          docker push $REGISTRY/$IMAGE_PREFIX/api-gateway
+
+      - name: Build and Push discovery-server
+        run: |
+          docker build -t $REGISTRY/$IMAGE_PREFIX/discovery-server ./discovery-server
+          docker push $REGISTRY/$IMAGE_PREFIX/discovery-server
+
+      # Optional step: Compose test
+      # - name: Docker Compose Up (Testing Only)
+      #   run: docker-compose -f docker-compose.yml up -d --build

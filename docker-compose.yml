@@ -2,16 +2,14 @@ version: '3.8'
 
 services:
 
-  # === DISCOVERY SERVER ===
   discovery-server:
     build: ./discovery-server
     container_name: discovery-server
     ports:
       - "8761:8761"
     networks:
-      - movie-network
+      - app-network
 
-  # === API GATEWAY ===
   api-gateway:
     build: ./api-gateway
     container_name: api-gateway
@@ -19,10 +17,11 @@ services:
       - "8080:8080"
     depends_on:
       - discovery-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_URL}
     networks:
-      - movie-network
+      - app-network
 
-  # === MOVIE SERVICE ===
   movie-service:
     build: ./movie-service
     container_name: movie-service
@@ -30,26 +29,25 @@ services:
       - movie-db
       - discovery-server
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://movie-db:5432/moviedb
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://movie-db:5432/${MOVIEDB_NAME}
+      - SPRING_DATASOURCE_USERNAME=${POSTGRES_USER}
+      - SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD}
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_URL}
     networks:
-      - movie-network
+      - app-network
 
   movie-db:
     image: postgres:15
     container_name: movie-db
     environment:
-      POSTGRES_DB: moviedb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      - POSTGRES_DB=${MOVIEDB_NAME}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "5433:5432"
     networks:
-      - movie-network
+      - app-network
 
-  # === RATING SERVICE ===
   rating-service:
     build: ./rating-service
     container_name: rating-service
@@ -57,26 +55,25 @@ services:
       - rating-db
       - discovery-server
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://rating-db:5432/ratingdb
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://rating-db:5432/${RATINGDB_NAME}
+      - SPRING_DATASOURCE_USERNAME=${POSTGRES_USER}
+      - SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD}
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_URL}
     networks:
-      - movie-network
+      - app-network
 
   rating-db:
     image: postgres:15
     container_name: rating-db
     environment:
-      POSTGRES_DB: ratingdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      - POSTGRES_DB=${RATINGDB_NAME}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "5434:5432"
     networks:
-      - movie-network
+      - app-network
 
-  # === REVIEW SERVICE ===
   review-service:
     build: ./review-service
     container_name: review-service
@@ -84,52 +81,35 @@ services:
       - review-db
       - discovery-server
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://review-db:5432/reviewdb
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://review-db:5432/${REVIEWDB_NAME}
+      - SPRING_DATASOURCE_USERNAME=${POSTGRES_USER}
+      - SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD}
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_URL}
     networks:
-      - movie-network
+      - app-network
 
   review-db:
     image: postgres:15
     container_name: review-db
     environment:
-      POSTGRES_DB: reviewdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      - POSTGRES_DB=${REVIEWDB_NAME}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "5435:5432"
     networks:
-      - movie-network
+      - app-network
 
-  # === STATS SERVICE ===
   stats-service:
     build: ./stats-service
     container_name: stats-service
     depends_on:
-      - stats-db
       - discovery-server
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://stats-db:5432/statsdb
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka/
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=${EUREKA_URL}
     networks:
-      - movie-network
-
-  stats-db:
-    image: postgres:15
-    container_name: stats-db
-    environment:
-      POSTGRES_DB: statsdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    ports:
-      - "5436:5432"
-    networks:
-      - movie-network
+      - app-network
 
 networks:
-  movie-network:
+  app-network:
     driver: bridge
