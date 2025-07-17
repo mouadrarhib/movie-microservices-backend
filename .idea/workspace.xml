@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ed5c693-80bf-40a5-ab8a-49fb11be189a" name="Changes" comment="" />
+    <list default="true" id="2ed5c693-80bf-40a5-ab8a-49fb11be189a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/init-db.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +58,7 @@
     "Spring Boot.StatsServiceApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Dev/Projects/Backend/Java-Microservices/movie-microservices-backend/discovery-server",
+    "last_opened_file_path": "C:/Users/user/Desktop/Dev/Projects/Backend/Java-Microservices/movie-microservices-backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,11 +70,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend" />
       <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\discovery-server" />
       <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\discovery-server\src\main\java\com\example\discovery_server" />
       <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\api-gateway\src\main\java\com\example\api_gateway" />
       <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\api-gateway" />
-      <recent name="C:\Users\user\Desktop\Dev\Projects\Backend\Java-Microservices\movie-microservices-backend\stats-service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.mouad.statsservice.helper" />
@@ -149,7 +154,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1752775289089</updated>
-      <workItem from="1752775290386" duration="4204000" />
+      <workItem from="1752775290386" duration="4901000" />
     </task>
     <servers />
   </component>
