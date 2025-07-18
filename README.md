@@ -40,6 +40,16 @@ Le projet est composé de 6 microservices :
 
 ## 🛠️ Technologies
 
+### Aperçu Visuel
+
+![docker-desktop](screens/docker-desktop.png)
+![dockerhub](screens/dockerhub.png)
+![eureka](screens/eureka.png)
+![github-actions](screens/github-actions.png)
+![gitkraken](screens/gitkraken.png)
+![services](screens/services.png)
+![swagger](screens/swagger.png)
+
 - **Backend**: Spring Boot 3.2.0, Spring Cloud 2023.0.0
 - **Base de données**: PostgreSQL 15
 - **Service Discovery**: Netflix Eureka
