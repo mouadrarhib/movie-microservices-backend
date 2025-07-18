@@ -1,68 +1,65 @@
-name: Build & Push Docker Images
+name: Build and Deploy Docker Images
 
 on:
   push:
     branches:
-      - main
+      - main  # or master, depending on your branch name
   pull_request:
-    branches:
-      - main
 
 jobs:
   build-and-push:
-    name: Build and Push Services
     runs-on: ubuntu-latest
 
-    env:
-      REGISTRY: docker.io
-      IMAGE_PREFIX: ${{ secrets.DOCKERHUB_USERNAME }}
-
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
-          java-version: '17'
           distribution: 'temurin'
+          java-version: '17'
 
-      - name: Log in to DockerHub
-        uses: docker/login-action@v2
+      - name: Cache Maven packages
+        uses: actions/cache@v4
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
 
-      - name: Build and Push rating-service
+      - name: Build all services with Maven
+        run: mvn clean package -DskipTests
+
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Build and Push Discovery Server
         run: |
-          docker build -t $REGISTRY/$IMAGE_PREFIX/rating-service ./rating-service
-          docker push $REGISTRY/$IMAGE_PREFIX/rating-service
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/discovery-server:latest ./discovery-server
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/discovery-server:latest
 
-      - name: Build and Push review-service
+      - name: Build and Push API Gateway
         run: |
-          docker build -t $REGISTRY/$IMAGE_PREFIX/review-service ./review-service
-          docker push $REGISTRY/$IMAGE_PREFIX/review-service
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/api-gateway:latest ./api-gateway
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/api-gateway:latest
 
-      - name: Build and Push user-service
+      - name: Build and Push Movie Service
         run: |
-          docker build -t $REGISTRY/$IMAGE_PREFIX/user-service ./user-service
-          docker push $REGISTRY/$IMAGE_PREFIX/user-service
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/movie-service:latest ./movie-service
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/movie-service:latest
 
-      - name: Build and Push stats-service
+      - name: Build and Push Rating Service
         run: |
-          docker build -t $REGISTRY/$IMAGE_PREFIX/stats-service ./stats-service
-          docker push $REGISTRY/$IMAGE_PREFIX/stats-service
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/rating-service:latest ./rating-service
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/rating-service:latest
 
-      - name: Build and Push api-gateway
+      - name: Build and Push Review Service
         run: |
-          docker build -t $REGISTRY/$IMAGE_PREFIX/api-gateway ./api-gateway
-          docker push $REGISTRY/$IMAGE_PREFIX/api-gateway
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/review-service:latest ./review-service
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/review-service:latest
 
-      - name: Build and Push discovery-server
+      - name: Build and Push Stats Service
         run: |
-          docker build -t $REGISTRY/$IMAGE_PREFIX/discovery-server ./discovery-server
-          docker push $REGISTRY/$IMAGE_PREFIX/discovery-server
-
-      # Optional step: Compose test
-      # - name: Docker Compose Up (Testing Only)
-      #   run: docker-compose -f docker-compose.yml up -d --build
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/stats-service:latest ./stats-service
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/stats-service:latest
